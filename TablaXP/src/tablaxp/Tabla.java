@@ -27,6 +27,7 @@ public class Tabla extends javax.swing.JFrame
               public void actionPerformed(ActionEvent e)
               {
                       tablat.setTabla(tipos.getSelectedItem().toString());
+                      tablat.resetea();
                       tablat.llenaTabla();
                       tablat.setVisible(true);
               }
