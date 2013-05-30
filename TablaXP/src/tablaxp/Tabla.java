@@ -1,5 +1,6 @@
 package tablaxp;
 
+import com.component.tabla.Bases;
 import com.component.tabla.CompTable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,32 +10,41 @@ public class Tabla extends javax.swing.JFrame
 {
         public JComboBox tipos;
         private Object nombres [];
-        CompTable tablat = new CompTable("");
+        CompTable tablat;
+        Bases base;
     public Tabla() 
     {
         initComponents();
+        //this.setVisible(false);
         this.setLocation(100, 200);
-        tablat.setDatosBD("telefonos", "postgres", "DARCNESS147369", "public");
-        nombres =tablat.getModeloTabla();
+        base = new Bases();
+        base.setVisible(true);
+        while(base.isVisible())
+        {
+            System.out.print("");
+        }
         
+        System.out.println("hOLA");
+        nombres =base.getModeloTabla();
+        for(int i=0 ; i<nombres.length;i++)
+                System.out.println(nombres[i]); 
         tipos= new JComboBox(nombres);          
         tipos.setBounds(12,17,300,20);
         jPanel1.add(tipos);
-        
         tipos.addActionListener(new ActionListener() 
           {
               @Override    
               public void actionPerformed(ActionEvent e)
               {
-                      tablat.setTabla(tipos.getSelectedItem().toString());
-                      //tablat.resetea();
-                      tablat.llenaTabla();
-                      tablat.setVisible(true);
+                      base.setTabla(tipos.getSelectedItem().toString());
+                      base.resetea();
+                      base.llenaTabla();
+                      base.setVisibleTabla();
               }
           });
+        this.setVisible(true);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
