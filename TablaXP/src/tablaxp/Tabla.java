@@ -10,12 +10,10 @@ public class Tabla extends javax.swing.JFrame
 {
         public JComboBox tipos;
         private Object nombres [];
-        CompTable tablat;
         Bases base;
     public Tabla() 
     {
         initComponents();
-        //this.setVisible(false);
         this.setLocation(100, 200);
         base = new Bases();
         base.setVisible(true);
@@ -23,11 +21,7 @@ public class Tabla extends javax.swing.JFrame
         {
             System.out.print("");
         }
-        
-        System.out.println("hOLA");
         nombres =base.getModeloTabla();
-        for(int i=0 ; i<nombres.length;i++)
-                System.out.println(nombres[i]); 
         tipos= new JComboBox(nombres);          
         tipos.setBounds(12,17,300,20);
         jPanel1.add(tipos);
